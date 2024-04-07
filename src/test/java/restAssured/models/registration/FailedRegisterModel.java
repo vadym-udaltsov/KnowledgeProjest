@@ -1,5 +1,5 @@
 
-package restAssured;
+package restAssured.models.registration;
 
 import lombok.*;
 

@@ -1,5 +1,5 @@
 
-package restAssured;
+package restAssured.models.userlist;
 
 import lombok.*;
 
@@ -13,6 +13,6 @@ public class DataUserModel {
     private String avatar;
     private String email;
     private String first_name;
-    private Long id;
+    private Integer id;
     private String last_name;
 }
