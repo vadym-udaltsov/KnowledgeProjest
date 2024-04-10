@@ -1,7 +1,10 @@
 package patterns.Adapter;
 
+import java.util.logging.Logger;
+
 public class Main {
     public static void main(String[] args) {
+        var logger = Logger.getLogger("Main.class");
         var carFabric = new ToyotaFabric();
         var toyota = new Toyota();
         var audi = new Audi();
@@ -24,13 +27,13 @@ public class Main {
         }
         carAdapter = new CarAdapter(audi);
 
-        System.out.println("Toyota Engine: " + toyota.getHealthEngine());
-        System.out.println("Audi Engine: " + audi.getHealthEngine());
+        logger.info("Toyota Engine: " + toyota.getHealthEngine());
+        logger.info("Audi Engine: " + audi.getHealthEngine());
 
         carFabric.repairEngine(toyota);
         carFabric.repairEngine(carAdapter).getAudi();
-        System.out.println("Toyota Engine: " + toyota.getHealthEngine());
-        System.out.println("Audi Engine: " + audi.getHealthEngine());
+        logger.info("Toyota Engine: " + toyota.getHealthEngine());
+        logger.info("Audi Engine: " + audi.getHealthEngine());
         carFabric.repairEngine(carAdapter).getAudi();
     }
 }

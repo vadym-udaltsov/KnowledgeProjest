@@ -4,6 +4,7 @@ import lombok.SneakyThrows;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import sql.helpers.SQLHelper;
 import sql.models.SQLUserModel;
 import sql.spec.SQLSpecification;
@@ -18,6 +19,15 @@ public class SQLTest {
     @Before
     public void setUp() {
         statement = SQLSpecification.getConnection();
+    }
+
+    @Test
+    public void verifyAspectAnnotation() {
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+        SQLSpecification adb = context.getBean(SQLSpecification.class);
+        var string = adb.getSQLBase();
+        SQLSpecification.getConnection();
+        context.close();
     }
 
     @Test

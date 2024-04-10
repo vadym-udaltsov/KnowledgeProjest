@@ -1,11 +1,13 @@
 package sql.spec;
 
 import lombok.SneakyThrows;
+import org.springframework.stereotype.Component;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
+@Component
 public class SQLSpecification {
 
     private static final String SQL_URL = "jdbc:mysql://localhost:3306/mydbtest";
@@ -14,6 +16,10 @@ public class SQLSpecification {
 
     private static Connection connection;
     private static Statement statement;
+
+    public String getSQLBase() {
+        return "Aspect is working";
+    }
 
     @SneakyThrows
     public static Statement getConnection() {
